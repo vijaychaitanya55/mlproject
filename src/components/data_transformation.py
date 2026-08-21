@@ -12,7 +12,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder,StandardScaler
 
 from src.exception import CustomException
-from logger import logging
+from src.logger import logging
 
 @dataclass
 class DataTransformationConfig:
@@ -54,7 +54,7 @@ class DataTransformation:
                 steps = [
                     ("imputer",SimpleImputer(strategy="most_frequent")),
                     ("one_hot_encoder",OneHotEncoder()),
-                    ("scaler",StandardScaler()),
+                    ("scaler",StandardScaler(with_mean=False)),
                 ]
             )
 
